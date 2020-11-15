@@ -23,6 +23,21 @@
         }
         return true;
       }
+
+      function addRow() {
+        if (!validate()) {
+          return false;
+        }
+        $("#table tr:last").after(
+                "<tr>" +
+                "<td>" + $("#name").val() + "</td>" +
+                "<td>" + $("#surname").val() + "</td>" +
+                "<td>" + $("input[name=sex]:checked").val() + "</td>" +
+                "<td>" + document.getElementById("description").value + "</td>" +
+                "</tr>"
+        );
+        return true;
+      }
     </script>
   </head>
   <body>
@@ -41,50 +56,37 @@
         <div class="form-group">
           <label>Пол:</label>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="inputSexRadio1" name="sex" value="option1" checked>
+            <input type="radio" class="form-check-input" id="inputSexRadio1" name="sex" value="male" checked>
             <label class="form-check-label" for="inputSexRadio1">Мужской</label>
           </div>
           <div class="form-check">
-            <input type="radio" class="form-check-input" id="inputSexRadio2" name="sex" value="option2">
-            <label class="form-check-label" for="inputSexRadio1">Женский</label>
+            <input type="radio" class="form-check-input" id="inputSexRadio2" name="sex" value="female">
+            <label class="form-check-label" for="inputSexRadio2">Женский</label>
           </div>
         </div>
         <div class="form-group">
           <label for="description">Описание:</label>
           <textarea class="form-control" id="description" rows="5" placeholder="Введите описание" name="description"></textarea>
         </div>
-        <button class="btn btn-default" type="button" onclick="return validate();">Отправить</button>
+        <button class="btn btn-primary" type="button" onclick="return addRow();">Добавить</button>
       </form>
     </div>
     <div class="container"><hr></div>
     <div class="container">
       <h2>Striped Rows</h2>
       <p>The .table-striped class adds zebra-stripes to a table:</p>
-      <table class="table table-striped">
+      <table class="table table-striped" id="table">
         <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Пол</th>
+          <th>Описание</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
         </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
-        </tr>
-        </tbody>
       </table>
     </div>
   </body>
