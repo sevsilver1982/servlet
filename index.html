@@ -7,37 +7,56 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      function validate() {
+        if (document.getElementById("name").value === "") {
+          alert("Поле 'Имя' обязательно для заполнения");
+          return false;
+        }
+        if (document.getElementById("surname").value === "") {
+          alert("Поле 'Фамилия' обязательно для заполнения");
+          return false;
+        }
+        if (document.getElementById("description").value === "") {
+          alert("Поле 'Описание' обязательно для заполнения");
+          return false;
+        }
+        return true;
+      }
+    </script>
   </head>
   <body>
-  <div class="container">
-    <h1>My First Bootstrap Page</h1>
-    <p>This is some text.</p>
-    <form action="" method="post">
-      <div class="form-group">
-        <label for="name">Имя:</label>
-        <input type="text" class="form-control" id="name" placeholder="Введите имя" name="name">
-      </div>
-      <div class="form-group">
-        <label for="surname">Фамилия:</label>
-        <input type="text" class="form-control" id="surname" placeholder="Введите фамилию" name="surname">
-      </div>
-      <div class="form-group">
-        <label>Пол:</label>
-        <div class="form-check">
-          <input type="radio" class="form-check-input" id="inputSexRadio1" name="sex" value="option1" checked>
-          <label class="form-check-label" for="inputSexRadio1">Мужской</label>
+    <div class="container">
+      <h1>My First Bootstrap Page</h1>
+      <p>This is some text.</p>
+      <form action="" method="post">
+        <div class="form-group">
+          <label for="name">Имя:</label>
+          <input type="text" class="form-control" id="name" placeholder="Введите имя" name="name">
         </div>
-        <div class="form-check">
-          <input type="radio" class="form-check-input" id="inputSexRadio2" name="sex" value="option2">
-          <label class="form-check-label" for="inputSexRadio1">Женский</label>
+        <div class="form-group">
+          <label for="surname">Фамилия:</label>
+          <input type="text" class="form-control" id="surname" placeholder="Введите фамилию" name="surname">
         </div>
-      </div>
-      <div class="form-group">
-        <label for="description">Описание:</label>
-        <textarea class="form-control" id="description" rows="5" placeholder="Введите описание" name="description"></textarea>
-      </div>
-    </form>
-  </div>
+        <div class="form-group">
+          <label>Пол:</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="inputSexRadio1" name="sex" value="option1" checked>
+            <label class="form-check-label" for="inputSexRadio1">Мужской</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="inputSexRadio2" name="sex" value="option2">
+            <label class="form-check-label" for="inputSexRadio1">Женский</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Описание:</label>
+          <textarea class="form-control" id="description" rows="5" placeholder="Введите описание" name="description"></textarea>
+        </div>
+        <button class="btn btn-default" type="button" onclick="return validate();">Отправить</button>
+      </form>
+    </div>
+    <div class="container"><hr></div>
     <div class="container">
       <h2>Striped Rows</h2>
       <p>The .table-striped class adds zebra-stripes to a table:</p>
