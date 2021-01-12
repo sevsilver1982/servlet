@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-  <head>
+<head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,86 +8,96 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-      function validate() {
-        if (document.getElementById("name").value === "") {
-          alert("Поле 'Имя' обязательно для заполнения");
-          return false;
+        function validate() {
+            if (document.getElementById("name").value === "") {
+                alert("Поле 'Имя' обязательно для заполнения");
+                return false;
+            }
+            if (document.getElementById("surname").value === "") {
+                alert("Поле 'Фамилия' обязательно для заполнения");
+                return false;
+            }
+            if (document.getElementById("description").value === "") {
+                alert("Поле 'Описание' обязательно для заполнения");
+                return false;
+            }
+            return true;
         }
-        if (document.getElementById("surname").value === "") {
-          alert("Поле 'Фамилия' обязательно для заполнения");
-          return false;
-        }
-        if (document.getElementById("description").value === "") {
-          alert("Поле 'Описание' обязательно для заполнения");
-          return false;
-        }
-        return true;
-      }
 
-      function addRow() {
-        if (!validate()) {
-          return false;
-        }
-        $("#table tr:last").after(
+        function addRow() {
+            if (!validate()) {
+                return false;
+            }
+            $("#table tr:last").after(
                 "<tr>" +
                 "<td>" + $("#name").val() + "</td>" +
                 "<td>" + $("#surname").val() + "</td>" +
                 "<td>" + $("input[name=sex]:checked").val() + "</td>" +
                 "<td>" + document.getElementById("description").value + "</td>" +
                 "</tr>"
-        );
-        return true;
-      }
+            );
+            return true;
+        }
     </script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>My First Bootstrap Page</h1>
-      <p>This is some text.</p>
-      <form action="" method="post">
+</head>
+<body>
+<div class="container">
+    <h1>My First Bootstrap Page</h1>
+    <p>This is some text.</p>
+    <hr>
+    <form action="" method="post">
         <div class="form-group">
-          <label for="name">Имя:</label>
-          <input type="text" class="form-control" id="name" placeholder="Введите имя" name="name">
+            <label for="selectAddress">Адрес:</label>
+            <select class="form-control" id="selectAddress" name="address">
+                <option value="+47">Norge (+47)</option>
+                <option value="+46">Sverige (+46)</option>
+                <option value="+45">Danmark (+45)</option>
+            </select>
         </div>
         <div class="form-group">
-          <label for="surname">Фамилия:</label>
-          <input type="text" class="form-control" id="surname" placeholder="Введите фамилию" name="surname">
+            <label for="name">Имя:</label>
+            <input type="text" class="form-control" id="name" placeholder="Введите имя" name="name">
         </div>
         <div class="form-group">
-          <label>Пол:</label>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="inputSexRadio1" name="sex" value="male" checked>
-            <label class="form-check-label" for="inputSexRadio1">Мужской</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" id="inputSexRadio2" name="sex" value="female">
-            <label class="form-check-label" for="inputSexRadio2">Женский</label>
-          </div>
+            <label for="inputSurname">Фамилия:</label>
+            <input type="text" class="form-control" id="inputSurname" placeholder="Введите фамилию" name="surname">
         </div>
         <div class="form-group">
-          <label for="description">Описание:</label>
-          <textarea class="form-control" id="description" rows="5" placeholder="Введите описание" name="description"></textarea>
+            <label for="sex">Пол:</label>
+            <div class="form-check" id="sex">
+                <input type="radio" class="form-check-input" id="sexId1" name="sex" value="male" checked>
+                <label class="form-check-label" for="sexId1">Мужской</label>
+                <input type="radio" class="form-check-input" id="sexId2" name="sex" value="female">
+                <label class="form-check-label" for="sexId2">Женский</label>
+            </div>
         </div>
-        <button class="btn btn-primary" type="button" onclick="return addRow();">Добавить</button>
-      </form>
-    </div>
-    <div class="container"><hr></div>
-    <div class="container">
-      <h2>Striped Rows</h2>
-      <p>The .table-striped class adds zebra-stripes to a table:</p>
-      <table class="table table-striped" id="table">
+        <div class="form-group">
+            <label for="description">Описание:</label>
+            <textarea class="form-control" id="description" rows="5" placeholder="Введите описание"
+                      name="description"></textarea>
+        </div>
+        <button class="btn btn-primary" type="button" onclick="addRow();">Добавить</button>
+    </form>
+</div>
+<div class="container">
+    <hr>
+</div>
+<div class="container">
+    <h2>Striped Rows</h2>
+    <p>The .table-striped class adds zebra-stripes to a table:</p>
+    <table class="table table-striped" id="table">
         <thead>
         <tr>
-          <th>Имя</th>
-          <th>Фамилия</th>
-          <th>Пол</th>
-          <th>Описание</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Пол</th>
+            <th>Описание</th>
         </tr>
         </thead>
         <tbody>
         <tr>
         </tr>
-      </table>
-    </div>
-  </body>
+    </table>
+</div>
+</body>
 </html>
